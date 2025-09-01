@@ -9,10 +9,10 @@ function App() {
   const [count, setCount] = useState(0)
   return (
     <>
-    <BrowserRouter>
-    <Allroutes />
-    </BrowserRouter>
-    </> 
+      <BrowserRouter>
+        <Allroutes />
+      </BrowserRouter>
+    </>
   )
 }
 export default App
