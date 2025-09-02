@@ -9,7 +9,7 @@ const Allroutes = () => {
     <div>
         <Routes>
             <Route path='/' element={<Login />}></Route>
-            <Route path='browser' element={<Browse />}></Route>
+            <Route path='browse' element={<Browse />}></Route>
         </Routes>
     </div>
   )
