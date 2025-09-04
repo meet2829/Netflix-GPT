@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"; 
+import { MAIN_BG } from "../utils/Constant";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -42,7 +43,7 @@ const Login = () => {
       
       <img
         className="absolute w-full h-full object-cover"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/cb72daa5-bd8d-408b-b949-1eaef000c377/web/IN-en-20250825-TRIFECTA-perspective_a3209894-0b01-4ddb-b57e-f32165e20a3f_small.jpg"
+        src={MAIN_BG}
         alt="Netflix background"
       />
       <div className="absolute inset-0 bg-black/50" />

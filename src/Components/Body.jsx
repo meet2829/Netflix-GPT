@@ -19,7 +19,7 @@ const Body = () => {
         navigate("/browse", { replace: true });
       } else {
         console.log(" No user found, redirecting to login");
-        dispatch(removeUser());
+        dispatch(removeuser());
         navigate("/", { replace: true });
       }
     });
