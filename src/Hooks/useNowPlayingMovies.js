@@ -14,7 +14,6 @@ const useNowPlayingMovies = (endpoint, action) => {
       );
       const json = await data.json();
       console.log(`${endpoint} Movies:`, json.results);
-
       dispatch(action(json.results || []));
     } catch (error) {
       console.error(`Error fetching ${endpoint} movies:`, error);
@@ -22,12 +21,9 @@ const useNowPlayingMovies = (endpoint, action) => {
       setLoading(false);
     }
   };
-
   useEffect(() => {
     getMovies();
   }, [endpoint]);
-
   return { loading };
 };
-
 export default useNowPlayingMovies;
