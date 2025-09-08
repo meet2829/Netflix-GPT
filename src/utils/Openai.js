@@ -1,10 +1,10 @@
 import OpenAI from "openai";
-import { OPENAI_KEY } from "./Constant";
 
+const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY;
 
-const openai= new OpenAI({
-    apiKey:OPENAI_KEY,
-    dangerouslyAllowBrowser: true
-})
+const openai = new OpenAI({
+  apiKey: OPENAI_KEY,
+  dangerouslyAllowBrowser: true, 
+});
 
-export default openai
+export default openai;

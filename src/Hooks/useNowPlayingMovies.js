@@ -3,8 +3,8 @@ import { options } from "../utils/Constant";
 import { useDispatch } from "react-redux";
 
 const useNowPlayingMovies = (endpoint, action) => {
-  const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
+const [loading, setLoading] = useState(true);
+const dispatch = useDispatch();
 
   const getMovies = async () => {
     try {

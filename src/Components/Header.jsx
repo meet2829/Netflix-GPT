@@ -8,17 +8,14 @@ import { LOGO } from "../utils/Constant";
 import { ToggleGptSearchView } from "../utils/GPTslice";
 
 const Header = () => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
  
-  const user = useSelector((state) => state.user);
-
+  const user = useSelector((state) => state.user);  
   const HandleToggelGPTSearch=()=>{
     dispatch(ToggleGptSearchView())
   }
-
   const handleSignOut = async () => {
     try {
       await signOut(auth); 
@@ -51,4 +48,5 @@ const Header = () => {
     </div>
   )
 }
+
 export default Header

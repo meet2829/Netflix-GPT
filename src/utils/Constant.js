@@ -2,6 +2,8 @@
 
  export const MAIN_BG="https://assets.nflxext.com/ffe/siteui/vlv3/cb72daa5-bd8d-408b-b949-1eaef000c377/web/IN-en-20250825-TRIFECTA-perspective_a3209894-0b01-4ddb-b57e-f32165e20a3f_small.jpg"
 
+
+ // for tmdb 
  export const options = {
   method: 'GET',
   headers: {
@@ -10,4 +12,3 @@
   }
 };
 
-export const OPENAI_KEY="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"

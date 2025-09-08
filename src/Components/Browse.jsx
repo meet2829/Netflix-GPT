@@ -23,8 +23,7 @@ const Browse = () => {
   const { loading: upcomingLoading } = useNowPlayingMovies("upcoming", addUpcomingMovies);
 
   return (<>
-
-
+  
     <div className="bg-black min-h-screen">
       <Header />
 
