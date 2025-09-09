@@ -22,7 +22,7 @@ const GPTSearchBar = () => {
             messages: [{ role: "user", content: GPTquery }],
             model: "gpt-4o-mini"
         });
-        console.log(GPTResult.choices[0].message.content);
+        console.log(GPTResult);
         setResults(GPTResult.choices[0].message.content);
     }
     return (<>
