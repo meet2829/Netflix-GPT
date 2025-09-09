@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { options } from "../utils/Constant";
+import { data } from "react-router-dom";
 
 const Banner = ({ movie }) => {
   if (!movie) return null;
@@ -15,11 +16,13 @@ const Banner = ({ movie }) => {
       const json = await data.json();
       const trailer = json.results.find((video) => video.type === "Trailer");
       if (trailer) setTrailerKey(trailer.key);
+       console.log(json)
     } catch (err) {
       console.error("Error fetching trailer:", err);
     }
+   
   };
-
+  
   useEffect(() => {
     GetMovieVideo();
   }, []);
@@ -55,5 +58,4 @@ const Banner = ({ movie }) => {
     </div>
   );
 };
-
 export default Banner;
