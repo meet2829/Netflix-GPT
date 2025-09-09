@@ -20,7 +20,7 @@ const Header = () => {
     try {
       await signOut(auth); 
       dispatch(removeuser()); 
-      navigate("/"); 
+      navigate("/");
     } catch (error) {
       console.error("Sign out error:", error.message);
     }
@@ -31,9 +31,7 @@ const Header = () => {
        src={LOGO} alt="" />
         <div className="flex justify-end items-center p-4 text-white">
       {user && (
-        
         <div className="flex items-center space-x-4 py-4">
-         
           <button className="bg-gradient-to-b rounded-2xl  via-transparent to-black p-2 m-3" onClick={HandleToggelGPTSearch}>🔍 Search GPT</button>
           <span className="text-gray-300">{user.email}</span>
           <button
@@ -48,5 +46,4 @@ const Header = () => {
     </div>
   )
 }
-
 export default Header

@@ -11,6 +11,9 @@ const LanguageOptions = {
     placeholder: "¿Qué quieres ver hoy?",
     button: "🔍 Buscar",
   },
+  guj: {
+    placeholder: "આજ તમારે સુ જોવું છે   ",
+    button: "🔍 સર્ચ ",
+  },
 };
-
 export default LanguageOptions;

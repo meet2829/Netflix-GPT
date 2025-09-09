@@ -10,3 +10,7 @@ const GPTsearch = () => {
 }
 
 export default GPTsearch
+
+
+
+

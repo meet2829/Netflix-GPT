@@ -2,27 +2,28 @@ import React, { useRef, useState } from 'react'
 import LanguageOptions from "./LanguageOptions"
 import openai from "../utils/Openai"
 
-
 const GPTSearchBar = () => {
 
     const [Language, setLanguage] = useState("en");
     const [results, setResults] = useState("");
 
     const SearchText = useRef(null)
-
     const HandleGPTClickSearch = async () => {
-
         console.log(SearchText.current.value)
+        const GPTquery = `Suggest 5 Indian movies or web series related to "${SearchText.current.value}". 
+                            For each result, provide:
+                            1. Title (only Indian names, no foreign titles) 
+                            2. Release Year
+                            3. IMBD rating
+                            4. A two-line description. 
+                            Reply only in ${Language}.`
 
-        const GPTquery = ` Suggest 5 ${SearchText.current.value} movies or webseries with release year and a one-line description give only indian  name. Reply in ${Language}.`
         const GPTResult = await openai.chat.completions.create({
             messages: [{ role: "user", content: GPTquery }],
             model: "gpt-4o-mini"
-
         });
         console.log(GPTResult.choices[0].message.content);
         setResults(GPTResult.choices[0].message.content);
-
     }
     return (<>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-20 mb-10 px-4">
@@ -34,12 +35,12 @@ const GPTSearchBar = () => {
                 <option value="en">English</option>
                 <option value="hi">Hindi</option>
                 <option value="es">Spanish</option>
+                <option value="guj">gujrati</option>
             </select>
-
             <form
                 className="w-full max-w-2xl flex"
                 onSubmit={(e) => e.preventDefault()}
-            >   
+            >
                 <input
                     ref={SearchText}
                     type="text"
@@ -63,8 +64,7 @@ const GPTSearchBar = () => {
                     {results}
                 </pre>
             </div>
-        )}
+        )}  
     </>)
 }
-
 export default GPTSearchBar
