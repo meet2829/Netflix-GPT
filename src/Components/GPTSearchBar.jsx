@@ -17,11 +17,11 @@ const GPTSearchBar = () => {
                             3. IMBD rating
                             4. A two-line description. 
                             Reply only in ${Language}.`
-
         const GPTResult = await openai.chat.completions.create({
             messages: [{ role: "user", content: GPTquery }],
             model: "gpt-4o-mini"
         });
+        
         console.log(GPTResult);
         setResults(GPTResult.choices[0].message.content);
     }
