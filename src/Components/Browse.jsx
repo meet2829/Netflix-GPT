@@ -11,6 +11,7 @@ import GPTsearch from "./GPTsearchPage";
 const Browse = () => {
 
   const ShowGptSearch = useSelector((store) => store.GPT.ShowGptSearch)
+
   const NowPlaying = useSelector((store) => store.movies.addNowPlayingMovies);
   const Popular = useSelector((store) => store.movies.popularMovies);
   const TopRated = useSelector((store) => store.movies.topRatedMovies);
@@ -20,7 +21,6 @@ const Browse = () => {
   const { loading: popularLoading } = useNowPlayingMovies("popular", addPopularMovies);
   const { loading: topRatedLoading } = useNowPlayingMovies("top_rated", addTopRatedMovies);
   const { loading: upcomingLoading } = useNowPlayingMovies("upcoming", addUpcomingMovies);
-
 
   return (<>
     <div className="bg-black min-h-screen">
@@ -43,5 +43,4 @@ const Browse = () => {
     </div>
   </>)
 }
-
 export default Browse;

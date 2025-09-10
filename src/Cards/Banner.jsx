@@ -20,9 +20,7 @@ const Banner = ({ movie }) => {
     } catch (err) {
       console.error("Error fetching trailer:", err);
     }
-   
   };
-  
   useEffect(() => {
     GetMovieVideo();
   }, []);
@@ -36,7 +34,7 @@ const Banner = ({ movie }) => {
         title="YouTube video player"
         frameBorder="0"
         allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-        allowFullScreen
+        
       ></iframe>
 
       <div className="absolute inset-0 "></div>
