@@ -21,7 +21,6 @@ const MovieCard = ({ movie }) => {
         <div className="p-4 space-y-2">
           <h2 className="text-xl font-bold truncate">{movie.title}</h2>
           <p className="text-sm text-gray-400">Release: {movie.release_date}</p>
-
           <div className="flex items-center space-x-1 text-yellow-400">
             <Star className="w-4 h-4 fill-yellow-400" />
             <span>{movie.vote_average.toFixed(1)}</span>

@@ -16,7 +16,7 @@ const Banner = ({ movie }) => {
       const json = await data.json();
       const trailer = json.results.find((video) => video.type === "Trailer");
       if (trailer) setTrailerKey(trailer.key);
-       console.log(json)
+      console.log(json)
     } catch (err) {
       console.error("Error fetching trailer:", err);
     }
@@ -24,17 +24,15 @@ const Banner = ({ movie }) => {
   useEffect(() => {
     GetMovieVideo();
   }, []);
-
   return (
     <div className="absolute h-screen w-full text-white bg-gradient-to-t from-black via-transparent to-black opacity-80 -mt-10">
-      
       <iframe
         className="relative top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-screen min-w-[177.78vh] -translate-x-1/2 -translate-y-1/2"
         src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&playlist=${trailerKey}&loop=1`}
         title="YouTube video player"
         frameBorder="0"
         allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-        
+
       ></iframe>
 
       <div className="absolute inset-0 "></div>
