@@ -15,7 +15,9 @@ const MovieModal = ({ movie, onClose }) => {
                     options
                 );
                 const json = await res.json();
-                const trailer = json.results.find((v) => v.type === "Clip");
+               const trailer = json.results.find((v) => v.type === "Clip"|| json.results.find((v) => v.type === "Trailer") 
+                         );
+
                 console.log("trailer:", trailer);
                 if (trailer) setTrailerKey(trailer.key);
             } catch (err) {
