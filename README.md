@@ -1,12 +1,60 @@
-# React + Vite
+How Data Flows into MovieModal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+User clicks a movie card
+setShowModal(true) opens modal.
+MovieModal movie={movie} passes the movie object.
 
-Currently, two official plugins are available:
+MovieModal receives movie
+Uses movie.id to fetch trailer.
+Stores the trailer key in state.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+UI updates
+If trailer found → plays inside <iframe>.
+If not found → shows "No Trailer Available 😔".
 
-## Expanding the ESLint configuration
+Close button
+Calls onClose (from parent MovieCard) → hides modal.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+👉 So MovieModal is like a popup player that depends on:
+movie (data passed from MovieCard)
+onClose (function passed from MovieCard)
+
+
+Where props are passed
+To Banner
+<Banner movie={NowPlaying[Math.floor(Math.random() * NowPlaying.length)]} />
+👉 You are sending 1 random movie object from NowPlaying.
+
+Inside Banner.js, you receive it like this:
+const Banner = ({ movie }) => { ... }
+
+
+To MovieRow
+<MovieRow title="Now Playing" movies={NowPlaying} />
+
+👉 You are sending two props:
+title → string ("Now Playing")
+movies → array of movies (NowPlaying)
+
+Inside MovieRow.js, you receive it like this:
+const MovieRow = ({ title, movies }) => { ... }
+
+
+Inside MovieRow → To MovieCard
+{movies?.map((movie) => (
+  <MovieCard key={movie.id} movie={movie} />
+))}
+
+
+👉 Each movie object is passed as movie prop to MovieCard.
+
+Inside MovieCard → To MovieModal (on click)
+{showModal && (
+  <MovieModal movie={movie} onClose={() => setShowModal(false)} />
+)}
+👉 When clicked, that same movie object is passed into MovieModal.
+
+
+✅ So, all data is passed down from Browse.js → Banner / MovieRow → MovieCard → MovieModal.
+The source of truth is Redux (useSelector).
+
