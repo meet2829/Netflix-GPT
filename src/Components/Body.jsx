@@ -23,8 +23,7 @@ const Body = () => {
         navigate("/", { replace: true });
       }
     });
-
-    
+    return () => unsubscribe();
   }, []);
 
   //  useEffect(() => {
