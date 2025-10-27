@@ -36,10 +36,8 @@ const Banner = ({ movie }) => {
         allowFullScreen
       ></iframe>
 
-   
       <div className="absolute inset-0 "></div>
 
-      
       <div className="absolute bottom-80 left-10 max-w-xl z-10">
         <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg">
           {movie.title}

@@ -5,6 +5,7 @@ import { auth } from "../utils/firebase";
 import { removeuser } from "../utils/UserSlice";
 import { useNavigate } from "react-router-dom";
 import { LOGO } from "../utils/Constant";
+import { ToggleGptSearchView } from "../utils/GPTslice";
 
 const Header = () => {
 
@@ -13,6 +14,10 @@ const Header = () => {
 
  
   const user = useSelector((state) => state.user);
+
+  const HandleToggelGPTSearch=()=>{
+    dispatch(ToggleGptSearchView())
+  }
 
   const handleSignOut = async () => {
     try {
@@ -29,7 +34,10 @@ const Header = () => {
        src={LOGO} alt="" />
         <div className="flex justify-end items-center p-4 text-white">
       {user && (
+        
         <div className="flex items-center space-x-4 py-4">
+         
+          <button className="bg-gradient-to-b rounded-2xl  via-transparent to-black p-2 m-3" onClick={HandleToggelGPTSearch}>🔍 Search GPT</button>
           <span className="text-gray-300">{user.email}</span>
           <button
             onClick={handleSignOut}
