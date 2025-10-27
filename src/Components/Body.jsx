@@ -10,7 +10,24 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       const { uid, email, displayName } = user;
+  //       console.log(" User Logged In:", user);
+  //       dispatch(adduser({ uid, email, displayName }));
+  //       navigate("/browse", { replace: true });
+  //     } else {
+  //       console.log(" No user found, redirecting to login");
+  //       dispatch(removeuser());
+  //       navigate("/", { replace: true });
+  //     }
+  //   });
+
+    
+  // }, []);
+
+   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName } = user;
